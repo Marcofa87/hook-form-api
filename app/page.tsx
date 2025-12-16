@@ -19,7 +19,8 @@ export default function Home() {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log(data);
   };
 
