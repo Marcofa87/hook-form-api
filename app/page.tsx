@@ -17,7 +17,18 @@ export default function Home() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: {
+      name: "Mario Rossi",
+      email: "mario@example.com",
+      password: "password123",
+      age: 25,
+      dateOfBirth: "1995-01-01",
+      time: "12:00",
+      phoneNumber: "1234567890",
+      website: "https://example.com",
+    },
+  });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
