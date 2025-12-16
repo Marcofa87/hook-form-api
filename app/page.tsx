@@ -16,7 +16,7 @@ export default function Home() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
@@ -195,8 +195,9 @@ export default function Home() {
         <button
           type="submit"
           className="col-span-2 p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+          disabled={isSubmitting}
         >
-          Submit
+          {isSubmitting ? "Loading..." : "Submit"}
         </button>
       </form>
     </div>
